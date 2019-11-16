@@ -1,3 +1,5 @@
+var Content, Footer, Header, Sider, SubMenu;
+
 import React, {
   useState
 } from 'react';
@@ -11,8 +13,9 @@ import {
 
 import style from './style';
 
-const { Header, Footer, Sider, Content } = Layout
-const { SubMenu } = Menu
+({Header, Footer, Sider, Content} = Layout);
+
+({SubMenu} = Menu);
 
 export default (props) => {
   var collapsed, onCollapse, setCollapsed;
