@@ -7,6 +7,9 @@ import {
 } from 'antd'
 import style from './style'
 
+{ Header, Footer, Sider, Content } = Layout
+{ SubMenu } = Menu
+
 export default (props) => 
   [collapsed, setCollapsed] = useState(false)
   onCollapse = (nowCollapsed) -> 
