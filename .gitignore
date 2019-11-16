@@ -27,4 +27,4 @@ yarn.lock
 yarn*.log
 .lock
 .cache
-.src
+src
