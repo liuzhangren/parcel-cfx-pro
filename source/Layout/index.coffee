@@ -12,9 +12,11 @@ import style from './style'
 
 export default (props) => 
   [collapsed, setCollapsed] = useState(false)
+  console.log 'hello--->>>', props
   onCollapse = (nowCollapsed) -> 
     setCollapsed(nowCollapsed)
-  
+  jumpTo = (href) => () => 
+    props.history.push href
   <Layout style={{minHeight: '100vh'}}>
     <Sider 
       collapsible
@@ -23,11 +25,11 @@ export default (props) =>
     >
       <div {style.logo...} />
       <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-        <Menu.Item key="1">
+        <Menu.Item onClick={jumpTo('/about')} key="1">
           <Icon type="pie-chart" />
           <span>Option 1</span>
         </Menu.Item>
-        <Menu.Item key="2">
+        <Menu.Item onClick={jumpTo('/')} key="2">
           <Icon type="desktop" />
           <span>Option 2</span>
         </Menu.Item>
