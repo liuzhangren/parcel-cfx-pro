@@ -12,7 +12,7 @@ import style from './style'
 
 export default (props) => 
   [collapsed, setCollapsed] = useState(false)
-  console.log 'hello--->>>', props
+  # console.log 'hello--->>>', props
   onCollapse = (nowCollapsed) -> 
     setCollapsed(nowCollapsed)
   jumpTo = (href) => () => 
@@ -25,11 +25,11 @@ export default (props) =>
     >
       <div {style.logo...} />
       <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-        <Menu.Item onClick={jumpTo('/about')} key="1">
+        <Menu.Item onClick={jumpTo('/')} key="1">
           <Icon type="pie-chart" />
           <span>Option 1</span>
         </Menu.Item>
-        <Menu.Item onClick={jumpTo('/')} key="2">
+        <Menu.Item onClick={jumpTo('/about')} key="2">
           <Icon type="desktop" />
           <span>Option 2</span>
         </Menu.Item>
@@ -42,9 +42,9 @@ export default (props) =>
             </span>
           }
         >
-          <Menu.Item key="3">Tom</Menu.Item>
-          <Menu.Item key="4">Bill</Menu.Item>
-          <Menu.Item key="5">Alex</Menu.Item>
+          <Menu.Item onClick={jumpTo('/users/tom')} key="3">Tom</Menu.Item>
+          <Menu.Item onClick={jumpTo('/users/bill')} key="4">Bill</Menu.Item>
+          <Menu.Item onClick={jumpTo('/users/alex')} key="5">Alex</Menu.Item>
         </SubMenu>
         <SubMenu
           key="sub2"
