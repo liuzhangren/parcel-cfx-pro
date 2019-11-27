@@ -11,10 +11,6 @@
     "react-router": "5.1.2"
   },
   "dependencies": {
-    "@babel/plugin-transform-runtime": "^7.6.2",
-    "babel-core": "6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
     "glamor": "^2.20.40",
     "antd": "^3.25.1",
     "history": "4.10.1"
