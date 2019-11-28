@@ -2,9 +2,13 @@ import { css } from 'glamor'
 
 
 aboutTitle = css {
-  color: "red"
+  color: 'red'
+}
+
+secondDiv = css {
+  color: 'blue'
 }
 
 export default {
-  aboutTitle
-}
+  aboutTitle, secondDiv
+} 

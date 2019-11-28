@@ -2,7 +2,7 @@ import { css } from 'glamor'
 
 
 firstDiv = css {
-  color: "red"
+  color: 'red'
 }
 
 secondDiv = css {

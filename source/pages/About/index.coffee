@@ -1,7 +1,14 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import style from './style'
+import CFX from '../../cfx'
 
+C = CFX {
+  'div'
+}
 
 export default  =>
-  <div {style.aboutTitle...}>this is AboutPage</div>
+  C.div {
+    style.aboutTitle...
+  }
+  , 'this is AboutPage'

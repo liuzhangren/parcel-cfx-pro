@@ -1,6 +1,11 @@
 import React from 'react'
 import ReactDom from 'react-dom'
+import CFX from '../../../cfx'
 
+C = CFX {
+  'div'
+}
 
 export default  =>
- <div>this is Tom</div>
+  C.div {}
+  , '这是Tom'

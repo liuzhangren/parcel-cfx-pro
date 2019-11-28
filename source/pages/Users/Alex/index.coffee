@@ -1,9 +1,19 @@
- import React from 'react'
- import ReactDom from 'react-dom'
- import { Button, Modal, Form, Input, Radio, Icon } from 'antd';
+import React from 'react'
+import ReactDom from 'react-dom'
+import { Input } from 'antd'
+import CFX from '../../../cfx'
 
- export default  =>
-  <div>
-  <p> this is Alex </p>
-  <Input placeholder="Basic usage" />
-  </div>
+C = CFX {
+  'div'
+  'p'
+  Input
+}
+
+export default  =>
+  C.div {}
+  ,
+    C.p {}
+    , 'this si Alex'
+    C.Input {
+      placeholder: 'Basic usage'
+    }
