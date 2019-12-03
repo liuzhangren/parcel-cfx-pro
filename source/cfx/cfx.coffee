@@ -4,11 +4,11 @@ cfxify = (createFactoryOrElement, type = 'createFactory') =>
     then (e) => createFactoryOrElement e
     when 'createElement'
     then(
-      (args...) =>
+      (e) => (args...) =>
         createFactoryOrElement.apply null
         , [
-          args...
           e
+          args...
         ]
     )
 

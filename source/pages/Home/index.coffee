@@ -2,9 +2,7 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import CFX from '../../cfx'
 import style from './style'
-import {
-  Button
-} from 'antd'
+import Button from '../../components/Button'
 
 C = CFX {
   'div'
@@ -12,6 +10,8 @@ C = CFX {
 }
 
 export default =>
+  click = () =>
+    console.log 'hello world!!!'
   C.div {
     style.firstDiv...
   }
@@ -24,5 +24,6 @@ export default =>
     ,
       C.Button {
         type: 'primary'
+        onClick: click
+        content: 'click'
       }
-      , 'click'
