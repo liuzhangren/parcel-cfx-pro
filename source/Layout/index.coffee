@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import CFX from '../cfx'
 import {
   Layout
   Menu
@@ -9,72 +10,193 @@ import style from './style'
 
 { Header, Footer, Sider, Content } = Layout
 { SubMenu } = Menu
+MItem = (args...) =>
+  React.createElement.apply null
+  , [
+    Menu.Item
+    args...
+  ]
+BItem = (args...) =>
+  React.createElement.apply null
+  , [
+    Breadcrumb.Item
+    args...
+  ]
 
-export default (props) => 
+C = CFX {
+  BItem
+  Footer
+  Breadcrumb
+  Content
+  Header
+  SubMenu
+  Icon
+  Menu
+  MItem
+  Layout
+  Sider
+  'div'
+  'span'
+}
+
+export default (props) =>
   [collapsed, setCollapsed] = useState(false)
-  # console.log 'hello--->>>', props
-  onCollapse = (nowCollapsed) -> 
+
+  onCollapse = (nowCollapsed) ->
     setCollapsed(nowCollapsed)
+  
   jumpTo = (href) => () => 
     props.history.push href
-  <Layout style={{minHeight: '100vh'}}>
-    <Sider 
-      collapsible
-      collapsed={collapsed} 
-      onCollapse={onCollapse}
-    >
-      <div {style.logo...} />
-      <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-        <Menu.Item onClick={jumpTo('/')} key="1">
-          <Icon type="pie-chart" />
-          <span>Option 1</span>
-        </Menu.Item>
-        <Menu.Item onClick={jumpTo('/about')} key="2">
-          <Icon type="desktop" />
-          <span>Option 2</span>
-        </Menu.Item>
-        <SubMenu
-          key="sub1"
-          title={
-            <span>
-              <Icon type="user" />
-              <span>User</span>
-            </span>
+    # props.history.push { pathname: href }
+
+  C.Layout {
+    style:
+      minHeight: '100vh'
+      color:  'red'
+  }
+  ,
+    C.Sider {
+      collapsible: true
+      collapsed
+      onCollapse
+    }
+    ,
+      C.div {
+        style.logo...
+      }
+      C.Menu {
+        theme: 'dark'
+        defaultSelectedKeys: ['1']
+        mode: 'inline'
+      }
+      ,
+        MItem {
+          onClick: jumpTo('/user_management')
+          key: '1'
+        }
+        ,
+          C.Icon {
+            type: 'user'
           }
-        >
-          <Menu.Item onClick={jumpTo('/users/tom')} key="3">Tom</Menu.Item>
-          <Menu.Item onClick={jumpTo('/users/bill')} key="4">Bill</Menu.Item>
-          <Menu.Item onClick={jumpTo('/users/alex')} key="5">Alex</Menu.Item>
-        </SubMenu>
-        <SubMenu
-          key="sub2"
-          title={
-            <span>
-              <Icon type="team" />
-              <span>Team</span>
-            </span>
+          C.span {}
+          , '用户管理'
+        # MItem {
+        #   onClick: jumpTo('/')
+        #   key: '7'
+        # }
+        # ,
+        #   C.Icon {
+        #     type: 'bank'
+        #   }
+        #   C.span {}
+        #   , '楼盘管理'
+        C.SubMenu {
+          key: 'sub1'
+          title:
+            C.span {}
+            ,
+              C.Icon {
+                type: 'file-search'
+              }
+              C.span {}
+              , '审核管理'
+        }
+        ,
+          MItem {
+            key: '3'
+            onClick: jumpTo('/a/b')
           }
-        >
-          <Menu.Item key="6">Team 1</Menu.Item>
-          <Menu.Item key="8">Team 2</Menu.Item>
-        </SubMenu>
-        <Menu.Item key="9">
-          <Icon type="file" />
-          <span>File</span>
-        </Menu.Item>
-      </Menu>
-    </Sider>
-    <Layout>
-      <Header style={{ background: '#fff', padding: 0 }} />
-      <Content style={{ margin: '0 16px' }}>
-        <Breadcrumb style={{ margin: '16px 0' }}>
-          <Breadcrumb.Item>User</Breadcrumb.Item>
-          <Breadcrumb.Item>Bill</Breadcrumb.Item>
-        </Breadcrumb>
-        <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-          {props.content}
-        </div>
-      </Content>
-      <Footer style={{ textAlign: 'center' }}>EstateAgency ©2019 Created by COTFEA UED</Footer>
-    </Layout>
-  </Layout>
+          , '认证审核'
+          MItem {
+            key: '4'
+          }
+          , '投诉审核'
+        # <SubMenu
+        #   key="sub1"
+        #   title={
+        #     <span>
+        #       <Icon type="file-search" />
+        #       <span>审核管理</span>
+        #     </span>
+        #   }
+        # >
+        #   <Menu.Item key="3">认证审核</Menu.Item>
+        #   <Menu.Item key="4">投诉审核</Menu.Item>
+        # </SubMenu>
+        MItem {
+          onClick: jumpTo('/')
+          key: '6'
+        }
+        ,
+          C.Icon {
+            type: 'bank'
+          }
+          C.span {}
+          , '楼盘管理'
+        MItem {
+          onClick: jumpTo('/about')
+          key: '7'
+        }
+        ,
+          C.Icon {
+            type: 'cloud-server'
+          }
+          C.span {}
+          , '流水管理'
+        MItem {
+          onClick: jumpTo('/about')
+          key: '8'
+        }
+        ,
+          C.Icon {
+            type: 'rise'
+          }
+          C.span {}
+          , '工作流'
+    C.Layout {}
+    ,
+      C.Header {
+        style:
+          background: '#fff'
+          padding: '0'
+      }
+      C.Content {
+        style:
+          margin: '0 16px'
+      }
+      ,
+        C.Breadcrumb {
+          style:
+            margin: '16px 0'
+        }
+        ,
+          BItem {}
+          , 'User'
+          BItem {}
+          , 'Bill'
+        C.div {
+          style:
+            padding: 24
+            background: '#fff'
+            minHeight: 360
+        }
+        , 
+          props.content
+      C.Footer {
+        style:
+          textAlign: 'center'
+      }
+      , 'EstateAgency ©2019 Created by COTFEA UED'
+        
+
+
+
+
+
+
+        
+
+
+
+
+

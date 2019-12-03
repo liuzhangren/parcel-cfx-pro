@@ -1,15 +1,11 @@
 import HomePage from './Home'
-import AboutPage from './About'
-import UsersTomPage from './Users/Tom'
-import UsersBillPage from './Users/Bill'
-import UsersAlexPage from './Users/Alex'
+import UsersPage from './Users'
 import LoginPage from './Login'
+import FilePage from './File'
 
 export default {
   HomePage
-  AboutPage
-  UsersTomPage
-  UsersBillPage
-  UsersAlexPage
+  UsersPage
   LoginPage
+  FilePage
 }

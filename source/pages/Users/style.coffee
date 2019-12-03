@@ -1,8 +1,8 @@
 import { css } from 'glamor'
 
 
-firstDiv = css {
-  color: "red"
+aboutTitle = css {
+  color: 'red'
 }
 
 secondDiv = css {
@@ -10,6 +10,5 @@ secondDiv = css {
 }
 
 export default {
-  firstDiv
-  secondDiv
-}
+  aboutTitle, secondDiv
+} 
