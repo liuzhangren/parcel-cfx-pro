@@ -11,4 +11,4 @@ export default  =>
   C.div {
     style.aboutTitle...
   }
-  , 'this is AboutPage'
+  , 'this is FilePage'

@@ -13,31 +13,20 @@ import {
 } from "react-router"
 
 history = createBrowserHistory()
-{ HomePage, AboutPage, UsersTomPage, UsersBillPage, UsersAlexPage, LoginPage} = Pages
+{ LoginPage, UsersPage } = Pages
 
 export default App = () =>
   if history.location.pathname is '/login'
-    return <LoginPage history= {history} />
+    return <LoginPage />
   else
     return <Layout history={history} content={
       <Router history={history}>
         <div>
           <Switch>
-            <Route path="/about">
-              <AboutPage />
+            <Route path='/user_management'>
+              <UsersPage />
             </Route>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-            <Route path="/users/tom">
-              <UsersTomPage />
-            </Route>
-            <Route path="/users/bill">
-              <UsersBillPage />
-            </Route>
-            <Route path="/users/alex">
-              <UsersAlexPage/>
-            </Route>
+            # <Redirect exact from='/' to='/user_management' />
           </Switch>
         </div>
       </Router>

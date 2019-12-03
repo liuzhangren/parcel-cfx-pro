@@ -10,8 +10,18 @@ import style from './style'
 
 { Header, Footer, Sider, Content } = Layout
 { SubMenu } = Menu
-Item = Menu.Item
-BItem = Breadcrumb.Item
+MItem = (args...) =>
+  React.createElement.apply null
+  , [
+    Menu.Item
+    args...
+  ]
+BItem = (args...) =>
+  React.createElement.apply null
+  , [
+    Breadcrumb.Item
+    args...
+  ]
 
 C = CFX {
   BItem
@@ -22,7 +32,7 @@ C = CFX {
   SubMenu
   Icon
   Menu
-  Item
+  MItem
   Layout
   Sider
   'div'
@@ -30,15 +40,14 @@ C = CFX {
 }
 
 export default (props) =>
-  console.log props
   [collapsed, setCollapsed] = useState(false)
 
   onCollapse = (nowCollapsed) ->
     setCollapsed(nowCollapsed)
   
-  jumpTo = (href) => () =>
+  jumpTo = (href) => () => 
     props.history.push href
-    console.log history
+    # props.history.push { pathname: href }
 
   C.Layout {
     style:
@@ -61,82 +70,89 @@ export default (props) =>
         mode: 'inline'
       }
       ,
-        C.Item {
-          onClick: jumpTo('/')
+        MItem {
+          onClick: jumpTo('/user_management')
           key: '1'
         }
         ,
           C.Icon {
-            type: 'pie-chart'
+            type: 'user'
           }
           C.span {}
-          , 'Option 1'
-        C.Item {
-          onClick: jumpTo('/about')
-          key: '2'
-        }
-        ,
-          C.Icon {
-            type: 'desktop'
-          }
-          C.span {}
-          , 'Option 2'
+          , '用户管理'
+        # MItem {
+        #   onClick: jumpTo('/')
+        #   key: '7'
+        # }
+        # ,
+        #   C.Icon {
+        #     type: 'bank'
+        #   }
+        #   C.span {}
+        #   , '楼盘管理'
         C.SubMenu {
           key: 'sub1'
           title:
             C.span {}
             ,
               C.Icon {
-                type: 'user'
+                type: 'file-search'
               }
               C.span {}
-              , 'User'
+              , '审核管理'
         }
         ,
-          C.Item {
-            onClick: jumpTo('users/tom')
+          MItem {
             key: '3'
+            onClick: jumpTo('/a/b')
           }
-          , 'Tom'
-          C.Item {
-            onClick: jumpTo('users/bill')
+          , '认证审核'
+          MItem {
             key: '4'
           }
-          , 'Bill'
-          C.Item {
-            onClick: jumpTo('users/alex')
-            key: '5'
-          }
-          , 'Alex'
-        C.SubMenu {
-          key: 'sub2'
-          title:
-            C.span {}
-            ,
-              C.Icon {
-                type: 'team'
-              }
-              C.span {}
-              , 'Team'
-        }
-        ,
-          C.Item {
-            key: '6'
-          }
-          , 'Team 1'
-          C.Item {
-            key: '8'
-          }
-          , 'Team 2'
-        C.Item {
-          key: '9'
+          , '投诉审核'
+        # <SubMenu
+        #   key="sub1"
+        #   title={
+        #     <span>
+        #       <Icon type="file-search" />
+        #       <span>审核管理</span>
+        #     </span>
+        #   }
+        # >
+        #   <Menu.Item key="3">认证审核</Menu.Item>
+        #   <Menu.Item key="4">投诉审核</Menu.Item>
+        # </SubMenu>
+        MItem {
+          onClick: jumpTo('/')
+          key: '6'
         }
         ,
           C.Icon {
-            type: 'file'
+            type: 'bank'
           }
           C.span {}
-          , 'File'
+          , '楼盘管理'
+        MItem {
+          onClick: jumpTo('/about')
+          key: '7'
+        }
+        ,
+          C.Icon {
+            type: 'cloud-server'
+          }
+          C.span {}
+          , '流水管理'
+        MItem {
+          onClick: jumpTo('/about')
+          key: '8'
+        }
+        ,
+          C.Icon {
+            type: 'rise'
+          }
+          C.span {}
+          , '工作流'
     C.Layout {}
     ,
       C.Header {
@@ -154,9 +170,9 @@ export default (props) =>
             margin: '16px 0'
         }
         ,
-          C.BItem {}
+          BItem {}
           , 'User'
-          C.BItem {}
+          BItem {}
           , 'Bill'
         C.div {
           style:
