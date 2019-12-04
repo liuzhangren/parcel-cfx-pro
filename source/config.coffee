@@ -1,4 +1,4 @@
-api_host = 'localhost'
+api_host = '192.168.31.18'
 api_port = '3001'
 api_prefix = 'http'
 

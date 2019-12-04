@@ -1,6 +1,8 @@
 import CFX from '../../cfx'
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
 import { Descriptions, Table, Card } from 'antd'
+import config from '../../config'
 
 Descriptions_Item = Descriptions.Item
 C = CFX {
@@ -13,7 +15,18 @@ C = CFX {
   Descriptions_Item
 }
 
-export default  =>
+export default (props) =>
+  console.log props.history.location.pathname.slice(11)
+  [dataSource, setDataSource] = useState []
+  useEffect () =>
+    fetchData = () =>
+      result = await axios.get "#{config.api_service}/user#{props.history.location.pathname.slice(11)}"
+      console.log result.data
+      setDataSource(result.data)
+    fetchData()
+    return
+  , []
+
   columns = [
     {
       title: '姓名'
@@ -67,7 +80,6 @@ export default  =>
       align: 'center'
     }
   ]
-  data = []
   C.div {
     style:
       backgroundColor: '#f0f2f5'
@@ -84,7 +96,7 @@ export default  =>
       ,
         C.Descriptions_Item 
           label:'用户ID'
-        , 'Cloud Database'
+        , "#{dataSource.id}"
         C.Descriptions_Item 
           label:'昵称'
         , 'Prepaid'
@@ -124,7 +136,7 @@ export default  =>
         C.Descriptions_Item 
           label:'接单能力分'
         , '接单率、到访率、认购率、反佣数目'
-
+    data=[]
     C.br {}
     C.Card 
       style:
@@ -142,7 +154,7 @@ export default  =>
       , '客户基本信息'
       C.Table {
         columns
-        dataSource: data
+        dataSource:data
       }
     C.Card {}
     ,

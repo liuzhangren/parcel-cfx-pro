@@ -3,7 +3,7 @@ import ReactDom from 'react-dom'
 import style from './style'
 import CFX from '../../cfx'
 import axios from 'axios'
-import Logic from '../WorkingFlow/Logic'
+import config from '../../config'
 import { 
   Table 
 } from 'antd'
@@ -21,7 +21,7 @@ export default (props) =>
   
   useEffect () =>
     fetchData = () =>
-      result = await axios.get "http://192.168.31.18:3001/user"
+      result = await axios.get "#{config.api_service}/user"
       setDataSource(result.data.data)
     fetchData()
     return
@@ -95,9 +95,11 @@ export default (props) =>
     {
       title: '操作',
       key: 'operation'
-      render: () =>
+      render: (value, row, index) =>
+        console.log row
         C.a
-          onClick: jumpTo '/userdetail'
+          key: index
+          onClick: jumpTo "/userdetail/#{row.id}"
         , '详情'
     }
   ]
