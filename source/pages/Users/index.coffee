@@ -3,24 +3,27 @@ import ReactDom from 'react-dom'
 import style from './style'
 import CFX from '../../cfx'
 import axios from 'axios'
+import Logic from '../WorkingFlow/Logic'
 import { 
   Table 
 } from 'antd'
 
 C = CFX {
+  'a'
   'div'
   Table
 }
 
-export default(props) =>
-  [data, setData] = useState( [] )
+
+export default (props) =>
+  [dataSource, setDataSource] = useState []
+  
   useEffect () =>
-    fetchData = () =>
-      result = await axios.get "http://192.168.31.18:3001/user"
-      setData(result.data.data)
-    fetchData()
+    (
+      () => 
+        setDataSource(await Logic.init())
+    )()
   , []
-  console.log data
   
   [collapsed, setCollapsed] = useState(false)
 
@@ -29,6 +32,7 @@ export default(props) =>
 
   jumpTo = (href) => () => 
     props.history.push href
+    
   columns = [
     {
       title: '姓名',
@@ -96,15 +100,13 @@ export default(props) =>
     }
   ]
   C.div {}
-    ,
+  ,
       # <Search
       #   placeholder="请输入想要搜索的用户"
       #   enterButton="Search"
       #   size="large"
       # />
-      C.Table {
-        columns
-        dataSource: data
-      }
-      ,
-      props.content
+    C.Table {
+      columns
+      dataSource
+    }

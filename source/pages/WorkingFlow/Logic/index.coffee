@@ -7,7 +7,13 @@ init = () =>
   console.log '请求之后', "#{config.api_service}/workingflow"
   responseData = workingFlowRes.data.data
   responseData.reduce (r, c) =>
-    { pushOrderPerson, acceptOrderPerson, status, updateAt, createdAt } = c
+    {
+      pushOrderPerson
+      acceptOrderPerson
+      status
+      updateAt
+      createdAt
+    } = c
     pushOrderPersonRes = await axios.get "#{config.api_service}/user/#{pushOrderPerson}"
     acceptOrderPersonRes = await axios.get "#{config.api_service}/user/#{acceptOrderPerson}"
     temp = {

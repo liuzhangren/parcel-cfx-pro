@@ -38,30 +38,43 @@ export default App = () =>
           history
         }
         ,
-          C.div {}
+          C.div {
+          }
           ,
             C.Switch {}
-            ,
+            , 
               C.Route {
+                exact:true
+                path:'/'
+              }
+              ,
+                C.
+              C.Route {
+                exact:true
                 path: '/user_management'
               }
               ,
                 C.UsersPage {
                   history
                 }
+                
               C.Route {
+                exact:true
                 path: '/user_detail'
               }
               ,
-                C.UserDetailPage {}
+                C.UserDetailPage {
+                }
                 
               C.Route {
-                paht: 'working_flow'
+                exact:true
+                path: '/workingflow'
               }
               ,
                 C.WorkingFlowPage {
                   history
                 }
+
     }
       
   
