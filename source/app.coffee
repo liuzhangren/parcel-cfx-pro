@@ -42,22 +42,20 @@ export default App = () =>
           ,
             C.Switch {}
             ,
-              C.Route {
-                path: '/user_management'
-              }
+              C.Route
+                exact: true
+                path: '/usermanagement'
               ,
                 C.UsersPage {
                   history
                 }
-              C.Route {
-                path: '/user_detail'
-              }
+              C.Route
+                path: '/userdetail'
               ,
                 C.UserDetailPage {}
                 
-              C.Route {
-                paht: 'working_flow'
-              }
+              C.Route 
+                path: '/workingflow'
               ,
                 C.WorkingFlowPage {
                   history

@@ -9,6 +9,7 @@ import {
 
 C = CFX {
   'div'
+  'a'
   Table
 }
 
@@ -19,8 +20,8 @@ export default(props) =>
       result = await axios.get "http://192.168.31.18:3001/user"
       setData(result.data.data)
     fetchData()
+    return
   , []
-  console.log data
   
   [collapsed, setCollapsed] = useState(false)
 
@@ -34,7 +35,6 @@ export default(props) =>
       title: '姓名',
       dataIndex: 'realName',
       key: 'name',
-      # text => <a>{text}</a>,
       width: 150,
       align: 'center'
     },
@@ -42,7 +42,6 @@ export default(props) =>
       title: '昵称',
       dataIndex: 'nickName',
       key: 'nickName',
-      # text => <a>{text}</a>,
       width: 150,
       align: 'center'
     },
@@ -92,7 +91,9 @@ export default(props) =>
       title: '操作',
       key: 'operation'
       render: () =>
-        <a onClick={jumpTo('/user_detail')} >详情</a>
+        C.a
+          onClick: jumpTo '/userdetail'
+        , '详情'
     }
   ]
   C.div {}
@@ -106,5 +107,5 @@ export default(props) =>
         columns
         dataSource: data
       }
-      ,
-      props.content
+      # ,
+      # props.content

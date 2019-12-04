@@ -71,7 +71,7 @@ export default (props) =>
       }
       ,
         MItem {
-          onClick: jumpTo('/user_management')
+          onClick: jumpTo('/usermanagement')
           key: '1'
         }
         ,
