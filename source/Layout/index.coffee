@@ -80,16 +80,6 @@ export default (props) =>
           }
           C.span {}
           , '用户管理'
-        # MItem {
-        #   onClick: jumpTo('/')
-        #   key: '7'
-        # }
-        # ,
-        #   C.Icon {
-        #     type: 'bank'
-        #   }
-        #   C.span {}
-        #   , '楼盘管理'
         C.SubMenu {
           key: 'sub1'
           title:
@@ -111,18 +101,6 @@ export default (props) =>
             key: '4'
           }
           , '投诉审核'
-        # <SubMenu
-        #   key="sub1"
-        #   title={
-        #     <span>
-        #       <Icon type="file-search" />
-        #       <span>审核管理</span>
-        #     </span>
-        #   }
-        # >
-        #   <Menu.Item key="3">认证审核</Menu.Item>
-        #   <Menu.Item key="4">投诉审核</Menu.Item>
-        # </SubMenu>
         MItem {
           onClick: jumpTo('/')
           key: '6'
@@ -144,7 +122,7 @@ export default (props) =>
           C.span {}
           , '流水管理'
         MItem {
-          onClick: jumpTo('/about')
+          onClick: jumpTo('/workingflow')
           key: '8'
         }
         ,

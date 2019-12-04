@@ -13,7 +13,7 @@ import {
 } from "react-router"
 
 history = createBrowserHistory()
-{ LoginPage, UsersPage, UserDetailPage } = Pages
+{ LoginPage, UsersPage, UserDetailPage, WorkingFlowPage } = Pages
 
 C = CFX {
   LoginPage
@@ -22,6 +22,7 @@ C = CFX {
   Switch
   Route
   UsersPage
+  WorkingFlowPage
   "div"
 }
 
@@ -45,6 +46,13 @@ export default App = () =>
               }
               ,
                 C.UsersPage {
+                  history
+                }
+              C.Route {
+                paht: 'working_flow'
+              }
+              ,
+                C.WorkingFlowPage {
                   history
                 }
     }
