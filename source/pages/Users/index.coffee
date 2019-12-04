@@ -4,8 +4,7 @@ import style from './style'
 import CFX from '../../cfx'
 import axios from 'axios'
 import { 
-  Table
-  Input 
+  Table 
 } from 'antd'
 
 C = CFX {
@@ -108,4 +107,4 @@ export default(props) =>
         dataSource: data
       }
       ,
-        props.content
+      props.content

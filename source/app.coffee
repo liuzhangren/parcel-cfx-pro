@@ -16,6 +16,7 @@ history = createBrowserHistory()
 { LoginPage, UsersPage, UserDetailPage } = Pages
 
 C = CFX {
+  UserDetailPage
   LoginPage
   Layout
   Router
@@ -47,6 +48,11 @@ export default App = () =>
                 C.UsersPage {
                   history
                 }
+              C.Route {
+                path: '/user_detail'
+              }
+              ,
+                C.UserDetailPage {}
     }
       
   
