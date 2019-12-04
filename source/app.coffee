@@ -4,33 +4,48 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import 'antd/dist/antd.css'
 import { createBrowserHistory } from 'history'
+import CFX from './cfx'
 import {
   Router
   Switch
   Route
   Link
-  Redirect
 } from "react-router"
 
 history = createBrowserHistory()
 { LoginPage, UsersPage } = Pages
 
+C = CFX {
+  LoginPage
+  Layout
+  Router
+  Switch
+  Route
+  UsersPage
+  "div"
+}
+
 export default App = () =>
   if history.location.pathname is '/login'
-    return <LoginPage />
+  then C.LoginPage {}
   else
-    return <Layout history={history} content={
-      <Router history={history}>
-        <div>
-          <Switch>
-            <Route path='/user_management'>
-              <UsersPage />
-            </Route>
-            # <Redirect exact from='/' to='/user_management' />
-          </Switch>
-        </div>
-      </Router>
-    } />
+    C.Layout {
+      history
+      content: 
+        C.Router {
+          history
+        }
+        ,
+          C.div {}
+          ,
+            C.Switch {}
+            ,
+              C.Route {
+                path: '/user_management'
+              }
+              ,
+                C.UsersPage {}
+    }
       
   
 
