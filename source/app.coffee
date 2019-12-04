@@ -58,9 +58,11 @@ export default App = () =>
                   history
                 }
               C.Route
-                path: '/userdetail'
+                exact: true
+                path: '/userdetail/:id'
               ,
                 C.UserDetailPage {
+                  history
                 }
                 
               C.Route 
