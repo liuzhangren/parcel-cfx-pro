@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import { Link } from 'react-router-dom'
 import ReactDom from 'react-dom'
 import style from './style'
 import CFX from '../../cfx'
@@ -14,7 +13,7 @@ C = CFX {
   Table
 }
 
-export default  =>
+export default(props) =>
   [data, setData] = useState( [] )
   useEffect () =>
     fetchData = () =>
@@ -22,6 +21,15 @@ export default  =>
       setData(result.data.data)
     fetchData()
   , []
+  console.log data
+  
+  [collapsed, setCollapsed] = useState(false)
+
+  onCollapse = (nowCollapsed) ->
+    setCollapsed(nowCollapsed)
+
+  jumpTo = (href) => () => 
+  props.history.push href
   C.div {}
     ,
       # <Search
@@ -33,11 +41,13 @@ export default  =>
         columns
         dataSource: data
       }
+      ,
+        props.content
 # { Search } = Input
 columns = [
   {
     title: '姓名',
-    dataIndex: 'name',
+    dataIndex: 'realName',
     key: 'name',
     # text => <a>{text}</a>,
     width: 150,
@@ -52,15 +62,8 @@ columns = [
     align: 'center'
   },
   {
-    title: '年龄',
-    dataIndex: 'age',
-    key: 'age',
-    width: 80,
-    align: 'center'
-  },
-  {
     title: '手机号',
-    dataIndex: 'telNumb',
+    dataIndex: 'tel',
     key: 'address 1',
     ellipsis: true,
     align: 'center'
@@ -88,14 +91,14 @@ columns = [
   },
   {
     title: '豆豆数量',
-    dataIndex: 'beanNumb',
+    dataIndex: 'douDouAmount',
     key: 'address 5',
     ellipsis: true,
     align: 'center'
   },
   {
     title: '综合信用分',
-    dataIndex: 'grade',
+    dataIndex: 'creditScore',
     key: 'address 6',
     ellipsis: true,
     align: 'center'
@@ -104,89 +107,6 @@ columns = [
     title: '操作',
     key: 'operation'
     render: () =>
-      <Link>详情</Link>
+      <a onClick={jumpTo('/user_detail')} >详情</a>
   }
-];
-
-data = [
-  {
-    key: '1',
-    name: 'John Brown',
-    nickName: 'hahaha'
-    age: 32,
-    telNumb: 213213213123,
-    level: '普通会员',
-    properties: 'balibalibalibali',
-    address: 'New York No. 1 Lake Park, New York No. 1 Lake Park',
-    beanNumb: 99,
-    grade: 100
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 2 Lake Park, London No. 2 Lake Park',
-    tags: ['loser'],
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park, Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
-  },
-  {
-    key: '4'
-  },
-  {
-    key: '5'
-  },  
-  {
-    key: '6'
-  },
-  {
-    key: '7'
-  },  
-  {
-    key: '8'
-  },
-  {
-    key: '9'
-  },  
-  {
-    key: '10'
-  },
-  {
-    key: '11'
-  },  
-  {
-    key: '12'
-  },
-  {
-    key: '13'
-  },  
-  {
-    key: '14'
-  },
-  {
-    key: '15'
-  },  
-  {
-    key: '16'
-  },
-  {
-    key: '17'
-  },  
-  {
-    key: '18'
-  },
-  {
-    key: '19'
-  },  
-  {
-    key: '20'
-  },
-  {
-    key: '21'
-  },
 ];

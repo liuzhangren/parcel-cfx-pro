@@ -13,7 +13,7 @@ import {
 } from "react-router"
 
 history = createBrowserHistory()
-{ LoginPage, UsersPage } = Pages
+{ LoginPage, UsersPage, UserDetailPage } = Pages
 
 export default App = () =>
   if history.location.pathname is '/login'
@@ -26,7 +26,10 @@ export default App = () =>
             <Route path='/user_management'>
               <UsersPage />
             </Route>
-            # <Redirect exact from='/' to='/user_management' />
+            <Route path='/user_detail'>
+              <UserDetailPage />
+            </Route>
+            <Redirect exact from='/' to='/user_management' />
           </Switch>
         </div>
       </Router>
