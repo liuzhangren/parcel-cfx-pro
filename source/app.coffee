@@ -38,7 +38,8 @@ export default App = () =>
           history
         }
         ,
-          C.div {}
+          C.div {
+          }
           ,
             C.Switch {}
             ,
@@ -52,7 +53,8 @@ export default App = () =>
               C.Route
                 path: '/userdetail'
               ,
-                C.UserDetailPage {}
+                C.UserDetailPage {
+                }
                 
               C.Route 
                 path: '/workingflow'
@@ -60,6 +62,7 @@ export default App = () =>
                 C.WorkingFlowPage {
                   history
                 }
+
     }
       
   
