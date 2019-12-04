@@ -13,7 +13,7 @@ import {
 } from "react-router"
 
 history = createBrowserHistory()
-{ LoginPage, UsersPage } = Pages
+{ LoginPage, UsersPage, UserDetailPage } = Pages
 
 C = CFX {
   LoginPage
@@ -44,7 +44,9 @@ export default App = () =>
                 path: '/user_management'
               }
               ,
-                C.UsersPage {}
+                C.UsersPage {
+                  history
+                }
     }
       
   
