@@ -112,7 +112,7 @@ export default (props) =>
           C.span {}
           , '楼盘管理'
         MItem {
-          onClick: jumpTo('/about')
+          onClick: jumpTo('/flowmanagement')
           key: '7'
         }
         ,
