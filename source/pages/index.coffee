@@ -6,6 +6,7 @@ import FilePage from './File'
 import WorkingFlowPage from './WorkingFlow'
 import PropertiePage from './Properties'
 import PropertieDetailPage from './Propertie_detail'
+import FlowManagementPage from './FlowManagement'
 
 export default {
   HomePage
@@ -16,4 +17,5 @@ export default {
   WorkingFlowPage
   PropertiePage
   PropertieDetailPage
+  FlowManagementPage
 }
