@@ -102,7 +102,7 @@ export default (props) =>
           }
           , '投诉审核'
         MItem {
-          onClick: jumpTo('/')
+          onClick: jumpTo('/propertie')
           key: '6'
         }
         ,

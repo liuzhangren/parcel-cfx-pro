@@ -13,7 +13,7 @@ import {
 } from "react-router"
 
 history = createBrowserHistory()
-{ LoginPage, UsersPage, UserDetailPage, WorkingFlowPage } = Pages
+{ LoginPage, UsersPage, UserDetailPage, WorkingFlowPage, PropertiePage, PropertieDetailPage } = Pages
 
 C = CFX {
   UserDetailPage
@@ -24,6 +24,8 @@ C = CFX {
   Route
   UsersPage
   WorkingFlowPage
+  PropertiePage
+  PropertieDetailPage
   "div"
 }
 
@@ -57,6 +59,20 @@ export default App = () =>
                 C.UserDetailPage {
                   history
                 }
+              C.Route
+                path: '/propertie'
+              ,
+                C.PropertiePage {
+                  history
+                }
+              C.Route
+                exact: true
+                path: '/propertiedetail/:id'
+              ,
+                C.PropertieDetailPage {
+                  history
+                }
+
                 
               C.Route 
                 path: '/workingflow'
