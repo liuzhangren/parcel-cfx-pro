@@ -99,16 +99,16 @@ export default (props) =>
         , "#{dataSource.id}"
         C.Descriptions_Item 
           label:'昵称'
-        , 'Prepaid'
+        , "#{dataSource.nickName}"
         C.Descriptions_Item 
           label:'姓名'
-        , '嘻嘻卡'
+        , "#{dataSource.realName}"
         C.Descriptions_Item 
           label:'性别'
-        , '男'
+        , "#{if dataSource.gender==1 then '男' else '女'}"
         C.Descriptions_Item 
           label:'手机号'
-        , '12323213214'
+        , "#{if dataSource.tel!= null then 'dataSource.tel' else '——'}"
         C.Descriptions_Item 
           label:'会员等级'
         , '金牌讲师'

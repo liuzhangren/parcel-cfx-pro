@@ -20,6 +20,8 @@ history = createBrowserHistory()
   WorkingFlowPage 
   FlowManagementPage
   ReviewPage
+  PropertiePage
+  PropertieDetailPage
 } = Pages
 
 C = CFX {
@@ -31,8 +33,11 @@ C = CFX {
   Route
   UsersPage
   WorkingFlowPage
+  PropertiePage
+  PropertieDetailPage
   FlowManagementPage
   ReviewPage
+  PropertieDetailPage
   "div"
 }
 
@@ -72,6 +77,21 @@ export default App = () =>
                 C.ReviewPage {
                   history
                 }
+              C.Route
+                path: '/propertie'
+              ,
+                C.PropertiePage {
+                  history
+                }
+              C.Route
+                exact: true
+                path: '/propertiedetail/:id'
+              ,
+                C.PropertieDetailPage {
+                  history
+                }
+
+                
               C.Route 
                 path: '/workingflow'
               ,
