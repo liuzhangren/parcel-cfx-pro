@@ -2,7 +2,7 @@ import { css } from 'glamor'
 
 
 aboutTitle = css {
-  width:'380px'
+  minWidth:'380px'
   padding:'30px 20px 10px'
   border:'1px solid #1890ff'
   position:'absolute'

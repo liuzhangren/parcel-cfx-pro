@@ -1,4 +1,4 @@
-import HomePage from './Home'
+import InfoPage from './UserInfo'
 import UsersPage from './Users'
 import UserDetailPage from './User_detail'
 import LoginPage from './Login'
@@ -10,7 +10,7 @@ import FlowManagementPage from './FlowManagement'
 import ReviewPage from './Review'
 
 export default {
-  HomePage
+  InfoPage
   UsersPage
   LoginPage
   FilePage
