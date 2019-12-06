@@ -94,7 +94,7 @@ export default (props) =>
         ,
           MItem {
             key: '3'
-            onClick: jumpTo('/a/b')
+            onClick: jumpTo('/review')
           }
           , '认证审核'
           MItem {

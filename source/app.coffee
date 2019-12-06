@@ -19,6 +19,7 @@ history = createBrowserHistory()
   UserDetailPage
   WorkingFlowPage 
   FlowManagementPage
+  ReviewPage
 } = Pages
 
 C = CFX {
@@ -31,6 +32,7 @@ C = CFX {
   UsersPage
   WorkingFlowPage
   FlowManagementPage
+  ReviewPage
   "div"
 }
 
@@ -64,7 +66,12 @@ export default App = () =>
                 C.UserDetailPage {
                   history
                 }
-                
+              C.Route 
+                path: '/review'
+              ,
+                C.ReviewPage {
+                  history
+                }
               C.Route 
                 path: '/workingflow'
               ,

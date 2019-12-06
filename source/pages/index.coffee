@@ -5,6 +5,7 @@ import LoginPage from './Login'
 import FilePage from './File'
 import WorkingFlowPage from './WorkingFlow'
 import FlowManagementPage from './FlowManagement'
+import ReviewPage from './Review'
 
 export default {
   HomePage
@@ -14,4 +15,5 @@ export default {
   UserDetailPage
   WorkingFlowPage
   FlowManagementPage
+  ReviewPage
 }
