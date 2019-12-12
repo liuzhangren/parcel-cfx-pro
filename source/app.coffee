@@ -1,3 +1,4 @@
+import "babel-polyfill"
 import Pages from './pages'
 import Layout from './Layout'
 import React from 'react'
